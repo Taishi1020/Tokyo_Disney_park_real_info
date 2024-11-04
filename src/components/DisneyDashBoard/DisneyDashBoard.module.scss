@@ -1,0 +1,250 @@
+$disney-blue: #b8c7f6;
+$disney-blue-font-color: #618af1;
+$disney-gold: #FFB900;
+$disney-silver: #F2F2F2;
+$disney-pink: #FF69B4;
+$disney-purple: #f6c7f6;
+$disney-light-blue: #E6F3FF;
+$card-hover-transition: transform 0.3s ease, box-shadow 0.3s ease;
+$magic-gradient: linear-gradient(135deg, $disney-gold, #FFF3D4);
+$card-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+$magical-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+
+
+.container {
+  min-height: 100vh;
+  background:  url('/images/subtle-disney-pattern.png') repeat;
+  font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+  .header {
+    background: linear-gradient(to right, $disney-blue, $disney-purple);
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    .log h1 {
+      color: $disney-gold;
+      font-size: 2.5rem;
+      margin: 0;
+      text-align: center;
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      background: $magic-gradient;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .nav {
+      margin-top: 1rem;
+      ul {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        li a {
+          color: white;
+          text-decoration: none;
+          font-size: 1.1rem;
+          font-weight: 500;
+          padding: 0.5rem 1rem;
+          border-radius: 20px;
+          transition: $magical-transition;
+          &:hover {
+            backgraound: rgba(255, 255, 255, 0.2);
+            color: $disney-gold;
+            transform: translateY(-2px);
+          }
+          &::before {
+            content: "";
+            width: 0;
+            height: 10px;
+            background-size: contain;
+            margin-right: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+
+  //メインコンテンツ
+  .main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    section {
+      margin-bottom: 3rem;
+        h2 {
+          color: $disney-blue-font-color;
+          font-size: 2rem;
+          font-weight: 700;
+          margin-bottom: 1.5rem;
+          text-align: center;
+          position: relative;
+          &::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: $disney-gold;
+            margin: 0.5rem auto;
+            border-radius: 4px;
+          }
+        }
+
+    }
+    .parkInfo {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+
+      .infoCard {
+        background: white;
+        border-radius: 15px;
+        box-shadow: $card-shadow;
+        padding: 1.5rem;
+        transition: $magical-transition;
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        h3 {
+          color: $disney-blue-font-color;
+          font-size: 1.2rem;
+        }
+        p {
+          color: #333;
+          font-size: 1.5rem;
+          font-weight:  500;
+        }
+      }
+    }
+    .waitTime {
+      .waitTimeCard {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 15px;
+        box-shadow: $card-shadow;
+        margin-bottom: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: $magic-gradient;
+      }
+      &:hover {
+        transform: translateX(1px);
+        background: $magic-gradient;
+      }
+      h3 {
+        color: $disney-blue-font-color;
+        font-size: 1.2rem;
+      }
+      p {
+        background: $disney-blue;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-weight: 600;
+      }
+    }
+  }
+  // レストラン情報
+  .restaurantInfo, .shopInfo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+
+    .restaurantCard, .shopCard {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 15px;
+      box-shadow: $card-shadow;
+      transition: $magical-transition;
+
+      &:hover {
+        transform: scale(1.02);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      h3 {
+        color: $disney-blue;
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+      }
+
+      p {
+        color: #666;
+        font-size: 1rem;
+      }
+    }
+  }
+  // フッター
+  .footer {
+    background: $disney-blue;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  // モバイルレスポンシブ
+  @media (max-width: 768px) {
+    .header {
+      .nav ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+      }
+    }
+    .parkInfo {
+      grid-template-columns: 1fr;
+    }
+    .waiteTime {
+      .waitTimeCard {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+      }
+    }
+    .restaurantInfo, .shopInfo {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // アニメーション
+  @keyframes fade {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  section {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  //カスタムスクロールバー
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: $disney-silver;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: $disney-blue;
+    border-radius: 5px;
+  }
+
+}
+
+
